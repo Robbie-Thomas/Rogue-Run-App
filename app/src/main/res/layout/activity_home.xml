@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBG"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="141dp"
+        android:fontFamily="@font/youmurdererbb_reg"
+        android:text="@string/rogue_run"
+        android:textSize="72sp"
+        app:layout_constraintBottom_toTopOf="@+id/profileBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/profileBtn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="27dp"
+        android:background="@drawable/btn_rounded"
+        android:text="@string/profile"
+        app:layout_constraintBottom_toTopOf="@+id/Missions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@android:color/white"
+
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/Missions"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:textColor="@android:color/white"
+
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="219dp"
+        android:background="@drawable/btn_rounded"
+        android:text="@string/missions"
+        app:layout_constraintBottom_toTopOf="@+id/SignOut"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileBtn" />
+
+    <Button
+        android:id="@+id/SignOut"
+        android:layout_width="395dp"
+        android:layout_height="0dp"
+        android:textColor="@android:color/white"
+
+        android:layout_marginBottom="80dp"
+        android:background="@drawable/btn_rounded"
+        android:text="@string/signout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Missions"
+        tools:text="SignOut" />
+
+
+</android.support.constraint.ConstraintLayout>

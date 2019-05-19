@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">RogueRun2</string>
+    <string name="rogue_run">Rogue Run</string>
+    <string name="profile">Profile</string>
+    <string name="missions">Missions</string>
+    <string name="signout">SignOut</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="back">Back</string>
+    <string name="weight">Weight (KG)</string>
+    <string name="height">Height (CM)</string>
+    <string name="age">Age</string>
+    <string name="enter_stats">Enter Stats</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="sex">Sex:</string>
+    <string name="notification_text">TestNotification</string>
+    <string name="your_profile"><u>Your Profile</u></string>
+    <string name="start_workout">Start Workout</string>
+</resources>

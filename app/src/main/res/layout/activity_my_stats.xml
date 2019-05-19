@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBG"
+    android:textColor="@android:color/white"
+    android:textColorHint="@android:color/white"
+
+    tools:context=".myStats">
+
+    <EditText
+        android:id="@+id/AgeIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="76dp"
+        android:ems="10"
+        android:hint="@string/age"
+        android:textColorHint="@android:color/white"
+        android:textColor="@android:color/white"
+
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/enterstatsbtn"
+        app:layout_constraintEnd_toEndOf="@+id/toggleButton"
+        app:layout_constraintTop_toBottomOf="@+id/HeightIn" />
+
+    <EditText
+        android:id="@+id/HeightIn"
+        android:layout_width="wrap_content"
+        android:textColorHint="@android:color/white"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="26dp"
+        android:ems="10"
+        android:textColor="@android:color/white"
+
+        android:hint="@string/height"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/AgeIn"
+        app:layout_constraintStart_toStartOf="@+id/WeightIn"
+        app:layout_constraintTop_toBottomOf="@+id/WeightIn" />
+
+    <EditText
+        android:id="@+id/WeightIn"
+        android:textColorHint="@android:color/white"
+
+        android:layout_width="wrap_content"
+        android:textColor="@android:color/white"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="17dp"
+        android:ems="10"
+        android:hint="@string/weight"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/HeightIn"
+        app:layout_constraintStart_toStartOf="@+id/editText5"
+        app:layout_constraintTop_toBottomOf="@+id/editText5" />
+
+    <Button
+        android:id="@+id/enterstatsbtn"
+        android:textColorHint="@android:color/white"
+        android:background="@drawable/btn_rounded"
+
+        android:layout_width="214dp"
+        android:layout_height="0dp"
+        android:textColor="@android:color/white"
+
+
+        android:layout_marginBottom="21dp"
+        android:text="@string/enter_stats"
+
+        app:layout_constraintBottom_toTopOf="@+id/BMI2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AgeIn" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="99dp"
+        android:text="Sex"
+        android:textOff="@string/male"
+        android:textOn="@string/female"
+        android:background="@color/colorBG"
+        android:textColorHint="@android:color/white"
+
+        app:layout_constraintBottom_toTopOf="@+id/enterstatsbtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Sex"
+        android:textColor="@android:color/white"
+
+        app:layout_constraintTop_toBottomOf="@+id/AgeIn" />
+
+    <EditText
+        android:id="@+id/Sex"
+        android:layout_width="0dp"
+        android:layout_height="41dp"
+
+        android:layout_marginStart="99dp"
+        android:layout_marginEnd="27dp"
+        android:editable="false"
+        android:ems="10"
+        android:textColor="@android:color/white"
+
+        android:text="@string/sex"
+        app:layout_constraintBottom_toTopOf="@+id/enterstatsbtn"
+        app:layout_constraintEnd_toStartOf="@+id/toggleButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AgeIn" />
+
+    <EditText
+        android:id="@+id/editText5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+
+        android:textColor="@android:color/white"
+
+        android:layout_marginBottom="30dp"
+        android:editable="false"
+        android:ems="10"
+        android:text="Enter details here"
+        app:layout_constraintBottom_toTopOf="@+id/WeightIn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/BDF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="14dp"
+
+        android:editable="false"
+        android:ems="10"
+        android:hint="Body Fat"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/Youare"
+        app:layout_constraintStart_toStartOf="@+id/BMI2"
+        app:layout_constraintTop_toBottomOf="@+id/BMI2" />
+
+    <EditText
+        android:id="@+id/BMI2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+
+        android:editable="false"
+        android:ems="10"
+        android:hint="BMI"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/BDF"
+        app:layout_constraintStart_toStartOf="@+id/enterstatsbtn"
+        app:layout_constraintTop_toBottomOf="@+id/enterstatsbtn" />
+
+    <EditText
+        android:id="@+id/Youare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="128dp"
+
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/BDF"
+        app:layout_constraintTop_toBottomOf="@+id/BDF" />
+
+</android.support.constraint.ConstraintLayout>

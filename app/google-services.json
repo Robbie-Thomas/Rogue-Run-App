@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "141308995582",
+    "firebase_url": "https://roguerun2.firebaseio.com",
+    "project_id": "roguerun2",
+    "storage_bucket": "roguerun2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:141308995582:android:f447cd0d01115bc8",
+        "android_client_info": {
+          "package_name": "com.example.roguerun2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "141308995582-qvspdu75k8km8il5lqghbue22mluf7ul.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.roguerun2",
+            "certificate_hash": "10f45d9e66b82d4af15b25ea14c98dff74893c62"
+          }
+        },
+        {
+          "client_id": "141308995582-aipsneeook5ponq5hmkdqv7fsgml1mqa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5v3X3ojXLPXFVocr2Z-H0a0DB--_PahE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "141308995582-aipsneeook5ponq5hmkdqv7fsgml1mqa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
