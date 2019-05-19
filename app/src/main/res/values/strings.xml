@@ -16,4 +16,5 @@
     <string name="notification_text">TestNotification</string>
     <string name="your_profile"><u>Your Profile</u></string>
     <string name="start_workout">Start Workout</string>
+    <string name="login">Login</string>
 </resources>

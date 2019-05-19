@@ -81,10 +81,7 @@ public class Login extends AppCompatActivity {
 
     }
 
-    public void sendToRegister(){
-        Intent intent = new Intent(this, Register.class);
-        startActivity(intent);
-    }
+
 
     public void sendToStats(){
         Intent intent = new Intent(this, myStats.class);
@@ -93,6 +90,7 @@ public class Login extends AppCompatActivity {
 
     private void updateUI(Object o) {
     }
+
 
     public void createButton(){
         login = findViewById(R.id.LoginBtn);
@@ -112,6 +110,12 @@ public class Login extends AppCompatActivity {
             }
         });
 
+    }
+
+
+    public void sendToRegister(){
+        Intent intent = new Intent(this, Register.class);
+        startActivity(intent);
     }
 
 

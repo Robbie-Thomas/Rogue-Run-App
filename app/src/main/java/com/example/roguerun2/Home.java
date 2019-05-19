@@ -49,7 +49,6 @@ public class Home extends AppCompatActivity {
         FirebaseAuth.getInstance().signOut();
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-
     }
 
     public void sendProfile(){
