@@ -29,7 +29,7 @@ public class resetPass extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                    resetPass(user);
+                    resetPassword(user);
                 }
             });
 
@@ -45,8 +45,7 @@ public class resetPass extends AppCompatActivity {
 
     }
 
-    public void resetPass(FirebaseUser user){
-
+    public void resetPassword(FirebaseUser user){
         EditText passIn = findViewById(R.id.resetpassin);
         String newPass = passIn.getText().toString().trim();
         if (newPass.isEmpty()) {
@@ -60,7 +59,6 @@ public class resetPass extends AppCompatActivity {
             passIn.requestFocus();
             return;
         }
-
         user.updatePassword(newPass).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {

@@ -29,8 +29,7 @@ public class Profile extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String id = user.getUid();
+
 
         setContentView(R.layout.activity_profile);
         displayEmail = findViewById(R.id.EmailDisplay);
@@ -42,11 +41,12 @@ public class Profile extends AppCompatActivity {
             String Email = user.getEmail();
             displayEmail.setText(Email);
         }
+        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String id = user.getUid();
         db2 = FirebaseDatabase.getInstance().getReference().child(id);
         db2.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
                 UserStats = dataSnapshot.getValue(User.class);
                 String BMI2 = String.valueOf(UserStats.getBmi()).substring(0, Math.min(String.valueOf(UserStats.getBmi()).length(), 4));
                 String BFI2 = String.valueOf(UserStats.getBodyFat()).substring(0, Math.min(String.valueOf(UserStats.getBodyFat()).length(), 4));
@@ -54,7 +54,6 @@ public class Profile extends AppCompatActivity {
                 bfi.setText(BFI2);
                 weight.setText(String.valueOf(UserStats.getWeight()));
                 youare.setText(WeightBound(UserStats.getBmi()));
-
             }
 
             @Override

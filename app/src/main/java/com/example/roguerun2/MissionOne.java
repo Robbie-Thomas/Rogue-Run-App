@@ -37,7 +37,6 @@ public class MissionOne extends AppCompatActivity {
         setContentView(R.layout.activity_mission_one);
         timer = findViewById(R.id.timer2);
 
-
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String id = user.getUid();
         db2 = FirebaseDatabase.getInstance().getReference().child(id);
@@ -45,7 +44,6 @@ public class MissionOne extends AppCompatActivity {
         db2.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
                 UserStats = dataSnapshot.getValue(User.class);
                }
 
@@ -70,27 +68,22 @@ public class MissionOne extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 databaseReference = FirebaseDatabase.getInstance().getReference();
-                newUser = new User(UserStats.getID(),UserStats.getAge(),UserStats.getHeight(),UserStats.getBmi(),UserStats.getWeight(),UserStats.getBodyFat(), true,UserStats.getWorkOut2(),UserStats.getWorkOut3(),UserStats.getWorkOut4());
+                newUser = new User(UserStats.getID(),UserStats.getAge(),UserStats.getHeight(),UserStats.getBmi(),UserStats.getWeight(),UserStats.getBodyFat()
+                        ,true,UserStats.getWorkOut2(),UserStats.getWorkOut3(),UserStats.getWorkOut4());
                 databaseReference.child(UserStats.getID()).setValue(newUser);
                 ToneGenerator toneGen1 = new ToneGenerator(AudioManager.STREAM_MUSIC, 100);
                 toneGen1.startTone(ToneGenerator.TONE_CDMA_PIP,150);
                 new CountDownTimer(600000, 1000) {
                     public void onTick(long millisUntilFinished) {
-
-
                         timer.setText("Seconds remaining: " + millisUntilFinished / 1000);
-
                     }
 
                     public void onFinish() {
                         timer.setText("Done");
-
                     }
-
                 }.start();
                 new CountDownTimer(100000, 1000) {
                     public void onTick(long millisUntilFinished) {
-
                     }
                     public void onFinish() {
                         ToneGenerator toneGen1 = new ToneGenerator(AudioManager.STREAM_MUSIC, 100);

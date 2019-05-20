@@ -140,17 +140,14 @@ public class MissionThree extends AppCompatActivity {
 
     public void createShareButton(){
         ImageButton share = findViewById(R.id.shareButton3);
-        share.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent shareIntent = new Intent(Intent.ACTION_SEND);
-                shareIntent.setType("text/plain");
-                String shareBody = "I have just completed Mission Three on Rogue Run";
-                String shareSub = "Rouge Run Mission Complete";
-                shareIntent.putExtra(Intent.EXTRA_SUBJECT, shareSub);
-                shareIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
-                startActivity(Intent.createChooser(shareIntent, "Share using"));
-            }
+        share.setOnClickListener(v -> {
+            Intent shareIntent = new Intent(Intent.ACTION_SEND);
+            shareIntent.setType("text/plain");
+            String shareBody = "I have just completed Mission Three on Rogue Run";
+            String shareSub = "Rouge Run Mission Complete";
+            shareIntent.putExtra(Intent.EXTRA_SUBJECT, shareSub);
+            shareIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
+            startActivity(Intent.createChooser(shareIntent, "Share using"));
         });
 
     }

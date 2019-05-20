@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -38,9 +39,9 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
         setContentView(R.layout.activity_step);
         /*listView = findViewById(R.id.listview1);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, Missions);*/
+        createShareButton();
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         stepDisplay = findViewById(R.id.stepsDisplay);
-
         activityRunning = false;
         mSensorService = new SensorStepServiceImpl(this);
         SensorStepServiceManager.startAutoUpdate(this);
@@ -93,6 +94,7 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
 
        if(activityRunning){
             stepsInSensor = event.values[0];
+           stepDisplay.setText(String.valueOf(stepsInSensor));
         }
         else {
             steps = event.values[0];
@@ -134,6 +136,22 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
         //SensorStepService.setCallback(this);
 
         //stepDisplay.setText(String.valueOf(mSensorService.getSteps()));
+
+    }
+    public void createShareButton(){
+        ImageButton share = findViewById(R.id.shareButton8);
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                String shareBody = "I have just done " + steps  + " steps since last restart";
+                String shareSub = "My step count";
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, shareSub);
+                shareIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
+                startActivity(Intent.createChooser(shareIntent, "Share using"));
+            }
+        });
 
     }
 }

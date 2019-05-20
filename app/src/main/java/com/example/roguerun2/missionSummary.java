@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Switch;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,10 +26,11 @@ public class missionSummary extends AppCompatActivity {
     private EditText missionsSum;
     private DatabaseReference databaseReference, db2;
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
+    long numberOfTrues;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        createShareButton();
         setContentView(R.layout.activity_mission_summary);
         missionsSum = findViewById(R.id.missionText);
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -40,17 +42,13 @@ public class missionSummary extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 UserStats = dataSnapshot.getValue(User.class);
-                int count = 0;
-                if(UserStats.getWorkOut1()) count++;
-                if(UserStats.getWorkOut2()) count++;
-                if(UserStats.getWorkOut3()) count++;
-                if(UserStats.getWorkOut4()) count++;
-                long numberOfTrues = Stream.of(UserStats.getWorkOut1(), UserStats.getWorkOut2(), UserStats.getWorkOut3(), UserStats.getWorkOut4())
+
+                numberOfTrues = Stream.of(UserStats.getWorkOut1(), UserStats.getWorkOut2(), UserStats.getWorkOut3(), UserStats.getWorkOut4())
                         .filter(w->w)
                         .count();
-                int counter = (UserStats.getWorkOut1() ? 1 : 0) + (UserStats.getWorkOut2() ? 1 : 0) + (UserStats.getWorkOut3() ? 1 : 0) + (UserStats.getWorkOut4() ? 1 : 0);
                 missionsSum.setText(String.valueOf(numberOfTrues) + " Missions");
 
+                //int counter = (UserStats.getWorkOut1() ? 1 : 0) + (UserStats.getWorkOut2() ? 1 : 0) + (UserStats.getWorkOut3() ? 1 : 0) + (UserStats.getWorkOut4() ? 1 : 0);
 
             }
 
@@ -74,5 +72,22 @@ public class missionSummary extends AppCompatActivity {
         startActivity(intent);
     }
 
+
+    public void createShareButton(){
+        ImageButton share = findViewById(R.id.shareButton7);
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                String shareBody = "I have just completed " +  numberOfTrues + " Missions";
+                String shareSub = "Rouge Run Missions Complete";
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, shareSub);
+                shareIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
+                startActivity(Intent.createChooser(shareIntent, "Share using"));
+            }
+        });
+
+    }
 
 }

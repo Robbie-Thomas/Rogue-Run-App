@@ -65,4 +65,16 @@
         android:textColor="@android:color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText3" />
+
+    <ImageButton
+        android:id="@+id/shareButton7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="118dp"
+        android:background="@drawable/btn_rounded"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_share" />
 </android.support.constraint.ConstraintLayout>

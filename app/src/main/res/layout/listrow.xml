@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:background="@color/colorBG"
+
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:background="@color/colorBock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/textView2"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF" />
+</LinearLayout>
