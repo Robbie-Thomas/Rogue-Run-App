@@ -67,7 +67,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editText3" />
 
     <ImageButton
-        android:id="@+id/shareButton7"
+        android:id="@+id/shareButton9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 

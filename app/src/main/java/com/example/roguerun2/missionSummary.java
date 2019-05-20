@@ -30,7 +30,7 @@ public class missionSummary extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        createShareButton();
+        //createShareButton();
         setContentView(R.layout.activity_mission_summary);
         missionsSum = findViewById(R.id.missionText);
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -65,6 +65,7 @@ public class missionSummary extends AppCompatActivity {
                 goBack();
             }
         });
+        createShareButton();
     }
 
     public void goBack(){
@@ -73,21 +74,21 @@ public class missionSummary extends AppCompatActivity {
     }
 
 
-    public void createShareButton(){
-        ImageButton share = findViewById(R.id.shareButton7);
+    public void createShareButton() {
+        ImageButton share = findViewById(R.id.shareButton9);
         share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
                 shareIntent.setType("text/plain");
-                String shareBody = "I have just completed " +  numberOfTrues + " Missions";
+                String shareBody = "I have just completed " + numberOfTrues + " Missions";
                 String shareSub = "Rouge Run Missions Complete";
                 shareIntent.putExtra(Intent.EXTRA_SUBJECT, shareSub);
                 shareIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
                 startActivity(Intent.createChooser(shareIntent, "Share using"));
             }
         });
-
     }
-
 }
+
+
