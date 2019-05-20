@@ -22,6 +22,7 @@
         android:textColor="@android:color/white"
 
         android:textColorHint="@android:color/white"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,7 +41,7 @@
 
 
         android:layout_marginBottom="8dp"
-        android:background="@color/colorBock"
+        android:background="@drawable/btn_rounded"
         android:text="Reset"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,17 +56,11 @@
         android:layout_height="wrap_content"
 
         android:layout_marginBottom="61dp"
-        android:background="@color/colorBock"
+        android:background="@drawable/btn_rounded"
         android:text="@string/back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="195dp" />
 </android.support.constraint.ConstraintLayout>

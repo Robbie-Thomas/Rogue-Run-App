@@ -12,36 +12,41 @@
         android:id="@+id/stepsDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="183dp"
+        android:layout_marginTop="1dp"
         android:ems="10"
         android:inputType="number"
         android:textColor="@android:color/white"
+        android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
 
     <EditText
         android:id="@+id/editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="1dp"
-        android:textColor="@android:color/white"
-        android:layout_marginBottom="25dp"
+        android:layout_marginTop="113dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Step's since last restart"
-        app:layout_constraintBottom_toTopOf="@+id/stepsDisplay"
-        app:layout_constraintEnd_toEndOf="@+id/stepsDisplay" />
+        android:textColor="@android:color/white"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/BackBtn3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="30dp"
+
         android:background="@drawable/btn_rounded"
         android:text="@string/back"
         android:textColor="@android:color/white"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

@@ -1,14 +1,19 @@
 package com.example.roguerun2;
 
+import android.app.NotificationManager;
 import android.content.Context;
+import android.content.Intent;
 import android.media.AudioManager;
 import android.media.ToneGenerator;
+import android.os.Build;
 import android.os.CountDownTimer;
 import android.support.annotation.NonNull;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 
 
 public class MissionTwo extends AppCompatActivity {
+    private static final String CHANNEL_ID = "";
     TextView timerTextView;
     long startTime = 0;
     private User UserStats, newUser;
@@ -34,7 +40,7 @@ public class MissionTwo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mission_two);
-
+        createShareButton();
         timerTextView = findViewById(R.id.timer);
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String id = user.getUid();
@@ -136,7 +142,22 @@ public class MissionTwo extends AppCompatActivity {
         });
     }
 
+    public void createShareButton(){
+        ImageButton share = findViewById(R.id.shareButton2);
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                String shareBody = "I have just completed Mission Two on Rogue Run";
+                String shareSub = "Rouge Run Mission Complete";
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, shareSub);
+                shareIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
+                startActivity(Intent.createChooser(shareIntent, "Share using"));
+            }
+        });
 
+    }
 
 
 

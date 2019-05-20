@@ -1,6 +1,7 @@
 package com.example.roguerun2;
 
 import android.content.Context;
+import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.ToneGenerator;
@@ -11,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +36,7 @@ public class MissionThree extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_mission_three);
         button();
         timerTextView = findViewById(R.id.timer4);
@@ -52,12 +55,12 @@ public class MissionThree extends AppCompatActivity {
 
             }
         });
-
+        createShareButton();
     }
 
 
     public void button(){
-        final Button button = findViewById(R.id.StartWorkout3);
+        Button button = findViewById(R.id.StartWorkout3);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -133,5 +136,22 @@ public class MissionThree extends AppCompatActivity {
                 }.start();
             }
         });
+    }
+
+    public void createShareButton(){
+        ImageButton share = findViewById(R.id.shareButton3);
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                String shareBody = "I have just completed Mission Three on Rogue Run";
+                String shareSub = "Rouge Run Mission Complete";
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, shareSub);
+                shareIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
+                startActivity(Intent.createChooser(shareIntent, "Share using"));
+            }
+        });
+
     }
 }

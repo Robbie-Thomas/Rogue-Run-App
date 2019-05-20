@@ -17,6 +17,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
 }
 
 dependencies {
@@ -38,5 +42,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-crash:9.4.0'
     implementation 'com.google.firebase:firebase-firestore:18.1.0'
     implementation 'com.github.orangegangsters:sensorstep:1.4.2@aar'
+
+
 }
 apply plugin: 'com.google.gms.google-services'

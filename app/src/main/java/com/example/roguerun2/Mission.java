@@ -14,7 +14,8 @@ public class Mission extends AppCompatActivity  {
     ListView listView;
     private SensorStepService mSensorService;
 
-    String Missions[] = new String[]{"Step Counter", "Mission One", "Mission Two", "Mission Three", "Mission Four"};
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +23,7 @@ public class Mission extends AppCompatActivity  {
         createMissionList();
     }
 
+    String Missions[] = new String[]{"Step Counter", "Mission One", "Mission Two", "Mission Three", "Mission Four"};
     public void createMissionList(){
         listView = findViewById(R.id.listView);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, Missions);

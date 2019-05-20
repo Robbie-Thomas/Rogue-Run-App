@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -20,7 +19,7 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 
 public class Register extends AppCompatActivity {
-    private FirebaseAuth mAuth;
+    private FirebaseAuth firebaseAuth;
     private Button register;
     private EditText email, password;
     private static final String TAG = "MainActivity";
@@ -48,36 +47,24 @@ public class Register extends AppCompatActivity {
 
     }
 
-   /* @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-
-    }*/
-
 
 
     public void signIn(){
-
         FirebaseApp.initializeApp(this);
-        mAuth = FirebaseAuth.getInstance();
-
+        firebaseAuth = FirebaseAuth.getInstance();
         String EmailIn = email.getText().toString().trim();
         String PassIn = password.getText().toString().trim();
-
-
         if (EmailIn.isEmpty()) {
-            email.setError("Email is required");
+            email.setError("A Email is required");
             email.requestFocus();
             return;
         }
         if (!Patterns.EMAIL_ADDRESS.matcher(EmailIn).matches()) {
             email.setError("Please enter a valid Email Address");
+            return;
         }
-
         if (PassIn.isEmpty()) {
-            password.setError("Password is required");
+            password.setError("A Password is required");
             password.requestFocus();
             return;
         }
@@ -86,33 +73,25 @@ public class Register extends AppCompatActivity {
             password.requestFocus();
             return;
         }
-        mAuth.createUserWithEmailAndPassword(EmailIn, PassIn).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        firebaseAuth.createUserWithEmailAndPassword(EmailIn, PassIn).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
 
                 if (task.isSuccessful()) {
-                    FirebaseUser user = mAuth.getCurrentUser();
-
-                    Log.d(TAG, "createUserWithEmail:success");
-                    //setContentView(R.layout.activity_main);
+                    FirebaseUser user = firebaseAuth.getCurrentUser();
                     user.sendEmailVerification();
                     sendToStats();
-
-
                 } else {
-
                     if (task.getException() instanceof FirebaseAuthUserCollisionException) {
                         Toast.makeText(getApplicationContext(), "You are already registered", Toast.LENGTH_SHORT).show();
-
                     } else {
                         Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                        Log.w(TAG, "createUserWithEmail:failure", task.getException());
                     }
-
                 }
             }
         });
       }
+
 
     public void SendToMain(){
         Intent intent = new Intent(this, Home.class);

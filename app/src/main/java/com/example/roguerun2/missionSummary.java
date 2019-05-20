@@ -18,6 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.stream.Stream;
 
 public class missionSummary extends AppCompatActivity {
     private User UserStats;
@@ -44,8 +45,12 @@ public class missionSummary extends AppCompatActivity {
                 if(UserStats.getWorkOut2()) count++;
                 if(UserStats.getWorkOut3()) count++;
                 if(UserStats.getWorkOut4()) count++;
+                long numberOfTrues = Stream.of(UserStats.getWorkOut1(), UserStats.getWorkOut2(), UserStats.getWorkOut3(), UserStats.getWorkOut4())
+                        .filter(w->w)
+                        .count();
                 int counter = (UserStats.getWorkOut1() ? 1 : 0) + (UserStats.getWorkOut2() ? 1 : 0) + (UserStats.getWorkOut3() ? 1 : 0) + (UserStats.getWorkOut4() ? 1 : 0);
-                missionsSum.setText(String.valueOf(counter) + " Missions");
+                missionsSum.setText(String.valueOf(numberOfTrues) + " Missions");
+
 
             }
 

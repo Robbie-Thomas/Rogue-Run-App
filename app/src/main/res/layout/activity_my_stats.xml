@@ -83,7 +83,7 @@
         android:text="Sex"
         android:textOff="@string/male"
         android:textOn="@string/female"
-        android:background="@color/colorBG"
+        android:background="@drawable/my_btn_toggle"
         android:textColorHint="@android:color/white"
 
         app:layout_constraintBottom_toTopOf="@+id/enterstatsbtn"

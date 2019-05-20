@@ -15,11 +15,12 @@
         android:layout_marginTop="120dp"
         android:autofillHints="Email"
         android:ems="10"
-        android:textColorHint="@android:color/white"
-        android:textColor="@android:color/white"
-
         android:hint="Enter Email Here"
         android:inputType="textEmailAddress"
+
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,16 +28,17 @@
 
     <EditText
         android:id="@+id/passwordLogin"
-        android:textColorHint="@android:color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="53dp"
-
         android:ems="10"
-        android:textColor="@android:color/white"
 
         android:hint="Enter Password Here"
         android:inputType="textPassword"
+
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"

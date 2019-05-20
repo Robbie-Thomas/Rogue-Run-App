@@ -11,9 +11,9 @@
 
     <ListView
         android:id="@+id/listView"
-        android:layout_width="395dp"
+        android:layout_width="fill_parent"
 
-        android:layout_height="715dp"
+        android:layout_height="fill_parent"
         android:listSelector="@color/colorPrimaryDark"
         android:textColor="@android:color/white"
         tools:layout_editor_absoluteX="8dp"

@@ -12,11 +12,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="102dp"
-        android:text="@string/start_workout"
         android:background="@drawable/btn_rounded"
+        android:text="@string/start_workout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageView5"
         app:layout_constraintHorizontal_bias="0.5"
+
         app:layout_constraintStart_toEndOf="@+id/imageView5" />
 
     <ImageView
@@ -39,10 +40,24 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:textColor="@android:color/white"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/shareButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="118dp"
+        android:background="@drawable/btn_rounded"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_share" />
+
 </android.support.constraint.ConstraintLayout>

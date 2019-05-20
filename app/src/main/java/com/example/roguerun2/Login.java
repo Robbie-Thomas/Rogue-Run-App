@@ -37,14 +37,13 @@ public class Login extends AppCompatActivity {
         String EmailIn = email.getText().toString().trim();
         String PassIn = password.getText().toString().trim();
         firebaseAuth = FirebaseAuth.getInstance();
-
         if (EmailIn.isEmpty()) {
-            email.setError("Enter an Email");
+            email.setError("Please enter an Email");
             email.requestFocus();
             return;
         }
         if (PassIn.isEmpty()) {
-            password.setError("Enter an Password");
+            password.setError("Please enter an Password");
             password.requestFocus();
             return;
         }
@@ -52,7 +51,6 @@ public class Login extends AppCompatActivity {
             @Override
             public void onSuccess(AuthResult authResult) {
                 SendToHome();
-
             }
 
         }).addOnFailureListener(new OnFailureListener() {

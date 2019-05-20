@@ -54,7 +54,6 @@ public class myStats extends AppCompatActivity {
 
     public void saveUser(){
         databaseReference = FirebaseDatabase.getInstance().getReference();
-
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String id = user.getUid();
         userStats = new User(id,age,height,bmi,weight,BodyFat, false,false,false,false);

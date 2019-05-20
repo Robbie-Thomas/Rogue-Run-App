@@ -31,7 +31,7 @@ public class Profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String id = user.getUid();
-        db2 = FirebaseDatabase.getInstance().getReference().child(id);
+
         setContentView(R.layout.activity_profile);
         displayEmail = findViewById(R.id.EmailDisplay);
         weight = findViewById(R.id.DisplayWeight);
@@ -41,8 +41,8 @@ public class Profile extends AppCompatActivity {
         if (user != null) {
             String Email = user.getEmail();
             displayEmail.setText(Email);
-
         }
+        db2 = FirebaseDatabase.getInstance().getReference().child(id);
         db2.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
